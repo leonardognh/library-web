@@ -1,0 +1,9 @@
+.preloader {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.preloader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

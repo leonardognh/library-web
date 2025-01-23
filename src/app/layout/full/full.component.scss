@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container-fluid {
+  flex: 1;
+}
+
+.sidebar {
+  height: calc(100vh - 56px); /* Ajusta altura considerando o header */
+  position: sticky;
+  top: 56px;
+  overflow-y: auto;
+}
+
+main {
+  background-color: #f8f9fa; /* Cor de fundo clara */
+  padding: 20px;
+}
