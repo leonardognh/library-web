@@ -1,0 +1,57 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    {{ action ? "Adicionar" : "Editar" }}
+    Categoria
+  </h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    id="btnX"
+    (click)="fecharModal()"
+  ></button>
+</div>
+<div class="modal-body">
+  <div class="row g-3">
+    <div class="col-sm-12">
+      <label for="descricao" class="form-label">Descrição</label>
+      <input
+        type="text"
+        class="form-control"
+        id="descricao"
+        [formControl]="descricaoControl"
+        cdkFocusInitial
+        [ngClass]="{
+          'is-invalid':
+            descricaoControl.invalid &&
+            descricaoControl.touched,
+        }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="descricaoControl.invalid &&
+        descricaoControl.touched && descricaoControl.errors?.['required']"
+      >
+        Descrição é obrigatório.
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    id="btnFechar"
+    class="btn btn-secondary"
+    (click)="fecharModal()"
+  >
+    Fechar
+  </button>
+  <button
+    type="submit"
+    id="btnSalvar"
+    class="btn btn-success"
+    (click)="salvar()"
+  >
+    Salvar
+  </button>
+</div>

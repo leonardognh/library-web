@@ -7,6 +7,6 @@ import { environment } from 'src/environments/environment';
 export class CategoryService extends GenericService<Category> {
   constructor() {
     super();
-    this.apiUrl = `${environment.apiUrl}/category`;
+    this.apiUrl = `${environment.apiUrl}/categories`;
   }
 }

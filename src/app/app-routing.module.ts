@@ -22,6 +22,13 @@ const routes: Routes = [
             (m) => m.HelloWorldModule
           ),
       },
+      {
+        path: 'category',
+        loadChildren: () =>
+          import('./pages/category/category.module').then(
+            (m) => m.CategoryModule
+          ),
+      },
     ],
   },
   {

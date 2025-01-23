@@ -2,12 +2,15 @@ import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Base } from '../models/base.model';
 import { Observable } from 'rxjs';
+import { PaginatedResponse } from '../models/paginated-response.model';
 
 export abstract class GenericService<T extends Base> {
   protected httpClient = inject(HttpClient);
   protected apiUrl: string;
-  getAll(): Observable<T[]> {
-    return this.httpClient.get<T[]>(`${this.apiUrl}`);
+  getAll(page: number): Observable<PaginatedResponse<T>> {
+    return this.httpClient.get<PaginatedResponse<T>>(
+      `${this.apiUrl}?page=${page}`
+    );
   }
   getById(id: number): Observable<T> {
     return this.httpClient.get<T>(`${this.apiUrl}/${id}`);
