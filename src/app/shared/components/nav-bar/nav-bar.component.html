@@ -3,7 +3,7 @@
   data-bs-theme="dark"
 >
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Livraria </a>
+    <a class="navbar-brand">Livraria </a>
 
     <button
       class="navbar-toggler"
@@ -19,31 +19,38 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/hw']"
-            >Home</a
-          >
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Features
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" [routerLink]="['/hw']">Hello World 1</a>
-            </li>
-            <li>
-              <a class="dropdown-item" [routerLink]="['/hw2']">Hello World 2</a>
-            </li>
-          </ul>
-        </li>
+        <ng-container *ngFor="let menu of menus">
+          <li class="nav-item" *ngIf="!menu.children">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              [routerLink]="[menu.route]"
+            >
+              {{ menu.label }}
+            </a>
+          </li>
+        </ng-container>
+        <ng-container *ngFor="let menu of menus">
+          <li class="nav-item dropdown" *ngIf="menu.children">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ menu.label }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li *ngFor="let child of menu.children">
+                <a class="dropdown-item" [routerLink]="[child.route]">
+                  {{ child.label }}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>
