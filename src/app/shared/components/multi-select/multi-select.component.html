@@ -1,21 +1,21 @@
 <div class="dropdown multi-select-dropdown">
-  <!-- Select personalizado -->
+  <!-- Botão do Dropdown -->
   <button
     class="form-select text-start"
     type="button"
     id="dropdownMenuButton"
     [ngClass]="{
-      'is-invalid': control.invalid && control.touched
+      'is-invalid': control.invalid && (control.touched || control.dirty)
     }"
     (click)="toggleDropdown()"
   >
     {{ getSelectedLabels() || dropdownTitle }}
   </button>
 
-  <!-- Erro de Validação -->
+  <!-- Mensagem de Erro -->
   <div
     class="invalid-feedback"
-    *ngIf="control.invalid && control.touched && control.errors?.['required']"
+    *ngIf="control.invalid && (control.touched || control.dirty) && control.errors?.['required']"
   >
     É necessário selecionar pelo menos uma opção.
   </div>
@@ -49,16 +49,15 @@
           <input
             type="checkbox"
             class="form-check-input"
-            [id]="'checkbox-' + option.id"
+            [id]="instanceId + '-' + option.id"
             [checked]="isSelected(option)"
             (change)="toggleSelection(option)"
           />
-          <label class="form-check-label" [for]="'checkbox-' + option.id">
+          <label class="form-check-label" [for]="instanceId + '-' + option.id">
             {{ option.label }}
           </label>
         </div>
       </div>
-
       <!-- Loader -->
       <div *ngIf="loading" class="text-center mt-2">
         <div class="spinner-border text-primary" role="status">
@@ -67,7 +66,7 @@
       </div>
     </div>
 
-    <!-- Botão para Fechar Dropdown -->
+    <!-- Botão Fechar -->
     <div class="mt-2">
       <button
         class="btn btn-secondary w-100"

@@ -74,7 +74,20 @@
           Estoque é obrigatório.
         </div>
       </div>
-
+      <div class="col-sm-12">
+        <label for="stock" class="form-label">Autores</label>
+        <app-multi-select
+          [options]="authors"
+          [dropdownTitle]="'Selecione a(o)s autores...'"
+          [searchPlaceholder]="'Procurar...'"
+          [pageSize]="10"
+          [totalPages]="totalPagesAuthors"
+          [formControl]="bookForm.controls['authors']"
+          (loadMore)="onLoadMoreAuthors($event)"
+          [triggerTouched]="triggerDropdownTouched"
+        >
+        </app-multi-select>
+      </div>
       <div class="col-sm-12">
         <label for="stock" class="form-label">Categorias</label>
         <app-multi-select
@@ -84,8 +97,8 @@
           [pageSize]="10"
           [totalPages]="totalPagesCategories"
           [formControl]="bookForm.controls['categories']"
-          (selectionChange)="onSelectionChange($event)"
-          (loadMore)="onLoadMore($event)"
+          (loadMore)="onLoadMoreCategories($event)"
+          [triggerTouched]="triggerDropdownTouched"
         >
         </app-multi-select>
       </div>

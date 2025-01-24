@@ -4,6 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/shared/models/book.model';
 import { Option } from 'src/app/shared/models/options.models';
+import { AuthorService } from 'src/app/shared/services/author.service';
 import { BookService } from 'src/app/shared/services/book.service';
 import { CategoryService } from 'src/app/shared/services/category.service';
 
@@ -18,25 +19,39 @@ export class AddEdtBookComponent implements OnInit {
   private toastr = inject(ToastrService);
   private bookService = inject(BookService);
   private categoryService = inject(CategoryService);
+  private authorService = inject(AuthorService);
   action = 'Cadastrar';
   bookForm = new FormGroup({
-    id: new FormControl(0, Validators.required),
+    id: new FormControl(null, Validators.required),
     title: new FormControl('', Validators.required),
-    price: new FormControl(0, Validators.required),
-    stock: new FormControl(0, Validators.required),
-    categories: new FormControl([0], Validators.required),
-    authors: new FormControl([0], Validators.required),
+    price: new FormControl(null, Validators.required),
+    stock: new FormControl(null, Validators.required),
+    categories: new FormControl(null, Validators.required),
+    authors: new FormControl(null, Validators.required),
   });
+  authors: Option[];
   categories: Option[];
+  totalPagesAuthors: number = 0;
   totalPagesCategories: number = 0;
+  triggerDropdownTouched = false;
 
   ngOnInit(): void {
     if (this.book) {
       this.action = 'Editar';
-      this.bookForm.patchValue(this.book);
+      this.bookForm.patchValue(this.book as any);
     }
 
+    this.getAllAuthors();
     this.getAllCategories();
+  }
+  private getAllAuthors() {
+    this.authorService.getAll().subscribe((response) => {
+      this.authors = response.data.map((d) => ({
+        id: d.id,
+        label: d.name,
+      }));
+      this.totalPagesAuthors = response.pagination.totalPages;
+    });
   }
   private getAllCategories() {
     this.categoryService.getAll().subscribe((response) => {
@@ -47,24 +62,31 @@ export class AddEdtBookComponent implements OnInit {
       this.totalPagesCategories = response.pagination.totalPages;
     });
   }
-  onSelectionChange(selectedOptions: any): void {
-    console.log('Selecionados:', selectedOptions);
-  }
 
-  onLoadMore(page: any): void {
+  onLoadMoreAuthors(page: number): void {
+    console.log('Carregar mais autores para a página:', page);
+
+    this.authorService.getAll(page).subscribe((response) => {
+      const newAuthors = response.data.map((d) => ({
+        id: d.id,
+        label: d.name,
+      }));
+
+      this.authors = [...this.authors, ...newAuthors];
+      this.totalPagesAuthors = response.pagination.totalPages;
+    });
+  }
+  onLoadMoreCategories(page: number): void {
+    console.log('Carregar mais categorias para a página:', page);
+
     this.categoryService.getAll(page).subscribe((response) => {
       const newCategories = response.data.map((d) => ({
         id: d.id,
         label: d.description,
       }));
 
-      this.totalPagesCategories = response.pagination.totalPages;
-
       this.categories = [...this.categories, ...newCategories];
-      console.log(
-        '🚀 ~ AddEdtBookComponent ~ this.categoryService.getAll ~ this.categories:',
-        this.categories
-      );
+      this.totalPagesCategories = response.pagination.totalPages;
     });
   }
 
@@ -75,6 +97,7 @@ export class AddEdtBookComponent implements OnInit {
         'Campos Inválidos!'
       );
       this.bookForm.markAllAsTouched();
+      this.triggerDropdownTouched = true;
       return;
     }
 
