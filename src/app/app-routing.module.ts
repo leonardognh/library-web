@@ -7,7 +7,7 @@ import { authGuard } from './shared/guard/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'hw',
+    redirectTo: 'book',
     pathMatch: 'full',
   },
   {
@@ -15,13 +15,6 @@ const routes: Routes = [
     component: FullComponent,
     canActivate: [authGuard],
     children: [
-      {
-        path: 'hw',
-        loadChildren: () =>
-          import('./pages/hello-world/hello-world.module').then(
-            (m) => m.HelloWorldModule
-          ),
-      },
       {
         path: 'author',
         loadChildren: () =>

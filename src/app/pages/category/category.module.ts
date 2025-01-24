@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoryService } from 'src/app/shared/services/category.service';
 import { AddEdtCategoryModule } from './add-edt-category/add-edt-category.module';
 import { NgbActiveModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     AddEdtCategoryModule,
     NgbModalModule,
+    ReactiveFormsModule,
   ],
   providers: [CategoryService, NgbActiveModal],
 })

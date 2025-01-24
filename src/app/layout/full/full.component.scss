@@ -5,17 +5,17 @@
 }
 
 .container-fluid {
+  background-color: #f8f9fa;
   flex: 1;
 }
 
 .sidebar {
-  height: calc(100vh - 56px); /* Ajusta altura considerando o header */
+  height: calc(100vh - 56px);
   position: sticky;
   top: 56px;
   overflow-y: auto;
 }
 
 main {
-  background-color: #f8f9fa; /* Cor de fundo clara */
   padding: 20px;
 }

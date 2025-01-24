@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddEdtAuthorModule } from './add-edt-author/add-edt-author.module';
 import { AuthorService } from 'src/app/shared/services/author.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     AddEdtAuthorModule,
     NgbModalModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthorService],
 })

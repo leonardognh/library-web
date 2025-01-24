@@ -3,7 +3,12 @@
 <div class="d-flex justify-content-between">
   <div class="input-group me-3">
     <span class="input-group-text"><i class="bi bi-search"></i></span>
-    <input type="text" class="form-control" placeholder="Pesquisar..." />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Pesquisar..."
+      [formControl]="searchControl"
+    />
   </div>
   <span class="d-flex align-items-center">
     <i

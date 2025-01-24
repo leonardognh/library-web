@@ -17,7 +17,7 @@ export class LoginComponent {
   });
   login() {
     this.authService.login().subscribe(() => {
-      this.router.navigate(['/hw']);
+      this.router.navigate(['/book']);
     });
   }
 }

@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Base } from '../models/base.model';
 import { Observable } from 'rxjs';
 import { PaginatedResponse } from '../models/paginated-response.model';
@@ -7,10 +7,14 @@ import { PaginatedResponse } from '../models/paginated-response.model';
 export abstract class GenericService<T extends Base> {
   protected httpClient = inject(HttpClient);
   protected apiUrl: string;
-  getAll(page: number = 0): Observable<PaginatedResponse<T>> {
-    return this.httpClient.get<PaginatedResponse<T>>(
-      `${this.apiUrl}?page=${page}`
-    );
+  getAll(page: number = 0, filter?: string): Observable<PaginatedResponse<T>> {
+    let params = new HttpParams().set('page', page.toString());
+    if (filter) {
+      params = params.set('filter', filter);
+    }
+    return this.httpClient.get<PaginatedResponse<T>>(`${this.apiUrl}`, {
+      params,
+    });
   }
   getById(id: number): Observable<T> {
     return this.httpClient.get<T>(`${this.apiUrl}/${id}`);

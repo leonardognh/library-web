@@ -5,6 +5,8 @@ import { ModalConfirmationComponent } from 'src/app/shared/components/modal-conf
 import { Book } from 'src/app/shared/models/book.model';
 import { BookService } from 'src/app/shared/services/book.service';
 import { AddEdtBookComponent } from './add-edt-book/add-edt-book.component';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-book',
@@ -15,6 +17,7 @@ export class BookComponent implements OnInit {
   private modalService = inject(NgbModal);
   private bookService = inject(BookService);
   private toastr = inject(ToastrService);
+  searchControl = new FormControl('');
   book: Book;
   books: Book[] = [];
   currentPage: number = 0;
@@ -23,10 +26,11 @@ export class BookComponent implements OnInit {
   pages: number[] = [];
 
   ngOnInit(): void {
-    this.loadCategories(this.currentPage);
+    this.loadBooks(this.currentPage);
+    this.observerSeachChange();
   }
-  loadCategories(page: number = 0): void {
-    this.bookService.getAll(page).subscribe((response) => {
+  loadBooks(page: number = 0, filter?: string): void {
+    this.bookService.getAll(page, filter).subscribe((response) => {
       this.books = response.data;
       this.currentPage = response.pagination.currentPage;
       this.totalPages = response.pagination.totalPages;
@@ -35,12 +39,23 @@ export class BookComponent implements OnInit {
       this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
     });
   }
+  private observerSeachChange() {
+    this.searchControl.valueChanges
+      .pipe(debounceTime(500), distinctUntilChanged())
+      .subscribe((value) => {
+        if (value) {
+          this.loadBooks(0, value);
+        } else {
+          this.loadBooks();
+        }
+      });
+  }
 
   openModal(book: Book | null = null) {
     const modalRef = this.modalService.open(AddEdtBookComponent);
     modalRef.componentInstance.book = book;
     modalRef.closed.subscribe(() => {
-      this.loadCategories();
+      this.loadBooks();
     });
   }
   openModalDelete(book: Book) {
@@ -54,14 +69,14 @@ export class BookComponent implements OnInit {
   }
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
-      this.loadCategories(page);
+      this.loadBooks(page);
     }
   }
   private remove(book: Book) {
     this.bookService.remove(book.id).subscribe({
       next: () => {
         this.toastr.success('Livro removido com sucesso!');
-        this.loadCategories();
+        this.loadBooks();
       },
       error: () => {
         this.toastr.error('Não foi possível remover essa categoria!');

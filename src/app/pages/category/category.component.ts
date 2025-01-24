@@ -5,6 +5,8 @@ import { CategoryService } from 'src/app/shared/services/category.service';
 import { AddEdtCategoryComponent } from './add-edt-category/add-edt-category.component';
 import { ModalConfirmationComponent } from 'src/app/shared/components/modal-confirmation/modal-confirmation.component';
 import { ToastrService } from 'ngx-toastr';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-category',
@@ -15,6 +17,7 @@ export class CategoryComponent implements OnInit {
   private modalService = inject(NgbModal);
   private categoryService = inject(CategoryService);
   private toastr = inject(ToastrService);
+  searchControl = new FormControl('');
   category: Category;
   categories: Category[] = [];
   currentPage: number = 0;
@@ -24,9 +27,10 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCategories(this.currentPage);
+    this.observerSeachChange();
   }
-  loadCategories(page: number = 0): void {
-    this.categoryService.getAll(page).subscribe((response) => {
+  loadCategories(page: number = 0, filter?: string): void {
+    this.categoryService.getAll(page, filter).subscribe((response) => {
       this.categories = response.data;
       this.currentPage = response.pagination.currentPage;
       this.totalPages = response.pagination.totalPages;
@@ -34,6 +38,17 @@ export class CategoryComponent implements OnInit {
 
       this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
     });
+  }
+  private observerSeachChange() {
+    this.searchControl.valueChanges
+      .pipe(debounceTime(500), distinctUntilChanged())
+      .subscribe((value) => {
+        if (value) {
+          this.loadCategories(0, value);
+        } else {
+          this.loadCategories();
+        }
+      });
   }
 
   openModal(category: Category | null = null) {
