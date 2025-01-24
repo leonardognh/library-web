@@ -22,7 +22,6 @@ export class AddEdtBookComponent implements OnInit {
   private authorService = inject(AuthorService);
   action = 'Cadastrar';
   bookForm = new FormGroup({
-    id: new FormControl(null, Validators.required),
     title: new FormControl('', Validators.required),
     price: new FormControl(null, Validators.required),
     stock: new FormControl(null, Validators.required),
@@ -36,13 +35,13 @@ export class AddEdtBookComponent implements OnInit {
   triggerDropdownTouched = false;
 
   ngOnInit(): void {
+    this.getAllAuthors();
+    this.getAllCategories();
+
     if (this.book) {
       this.action = 'Editar';
       this.bookForm.patchValue(this.book as any);
     }
-
-    this.getAllAuthors();
-    this.getAllCategories();
   }
   private getAllAuthors() {
     this.authorService.getAll().subscribe((response) => {
@@ -51,6 +50,14 @@ export class AddEdtBookComponent implements OnInit {
         label: d.name,
       }));
       this.totalPagesAuthors = response.pagination.totalPages;
+
+      if (this.book) {
+        const authors = this.authors.filter((author) =>
+          this.book.authors.includes(author.id)
+        );
+
+        this.bookForm.controls['authors'].setValue(authors as any);
+      }
     });
   }
   private getAllCategories() {
@@ -60,12 +67,18 @@ export class AddEdtBookComponent implements OnInit {
         label: d.description,
       }));
       this.totalPagesCategories = response.pagination.totalPages;
+
+      if (this.book) {
+        const categories = this.categories.filter((category) =>
+          this.book.categories.includes(category.id)
+        );
+
+        this.bookForm.controls['categories'].setValue(categories as any);
+      }
     });
   }
 
   onLoadMoreAuthors(page: number): void {
-    console.log('Carregar mais autores para a página:', page);
-
     this.authorService.getAll(page).subscribe((response) => {
       const newAuthors = response.data.map((d) => ({
         id: d.id,
@@ -77,8 +90,6 @@ export class AddEdtBookComponent implements OnInit {
     });
   }
   onLoadMoreCategories(page: number): void {
-    console.log('Carregar mais categorias para a página:', page);
-
     this.categoryService.getAll(page).subscribe((response) => {
       const newCategories = response.data.map((d) => ({
         id: d.id,
@@ -104,8 +115,25 @@ export class AddEdtBookComponent implements OnInit {
     if (this.book) this.update();
     else this.add();
   }
+  private getAuthorAndCategoryIds() {
+    let authors: any = this.bookForm.controls['authors'].value;
+    authors = authors.map((author: Option) => author.id);
+
+    let categories: any = this.bookForm.controls['categories'].value;
+    categories = categories.map((category: Option) => category.id);
+
+    return [authors, categories];
+  }
   private add() {
-    const book = Object.assign({}, this.book, this.bookForm.getRawValue());
+    const book: Book = Object.assign(
+      {},
+      this.book,
+      this.bookForm.getRawValue()
+    );
+    const [authors, categories] = this.getAuthorAndCategoryIds();
+    book.authors = authors;
+    book.categories = categories;
+
     this.bookService.add(book).subscribe({
       next: () => {
         this.toastr.success('Livro cadastrado com sucesso!');
@@ -117,7 +145,15 @@ export class AddEdtBookComponent implements OnInit {
     });
   }
   private update() {
-    const book = Object.assign({}, this.book, this.bookForm.getRawValue());
+    const book: Book = Object.assign(
+      {},
+      this.book,
+      this.bookForm.getRawValue()
+    );
+    const [authors, categories] = this.getAuthorAndCategoryIds();
+    book.authors = authors;
+    book.categories = categories;
+
     this.bookService.update(book).subscribe({
       next: () => {
         this.toastr.success('Livro atualizado com sucesso!');
