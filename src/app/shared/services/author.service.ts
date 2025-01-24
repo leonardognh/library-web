@@ -7,6 +7,6 @@ import { environment } from 'src/environments/environment';
 export class AuthorService extends GenericService<Author> {
   constructor() {
     super();
-    this.apiUrl = `${environment.apiUrl}/author`;
+    this.apiUrl = `${environment.apiUrl}/authors`;
   }
 }

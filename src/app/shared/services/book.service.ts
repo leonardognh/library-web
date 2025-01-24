@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class BookService extends GenericService<Book> {
   constructor() {
     super();
-    this.apiUrl = `${environment.apiUrl}/book`;
+    this.apiUrl = `${environment.apiUrl}/books`;
   }
   getAllByAuthors(): Observable<Book[]> {
     return this.httpClient.get<Book[]>(`${this.apiUrl}/authors`);

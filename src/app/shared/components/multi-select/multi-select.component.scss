@@ -1,0 +1,21 @@
+.infinite-scroll-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.multi-select-dropdown {
+  position: relative;
+}
+
+.multi-select-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+}
+
+.multi-select-dropdown .form-select {
+  cursor: pointer;
+}

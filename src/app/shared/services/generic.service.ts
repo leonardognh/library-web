@@ -7,7 +7,7 @@ import { PaginatedResponse } from '../models/paginated-response.model';
 export abstract class GenericService<T extends Base> {
   protected httpClient = inject(HttpClient);
   protected apiUrl: string;
-  getAll(page: number): Observable<PaginatedResponse<T>> {
+  getAll(page: number = 0): Observable<PaginatedResponse<T>> {
     return this.httpClient.get<PaginatedResponse<T>>(
       `${this.apiUrl}?page=${page}`
     );

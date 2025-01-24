@@ -1,7 +1,7 @@
 <div class="modal-header">
   <h5 class="modal-title">
     {{ action ? "Adicionar" : "Editar" }}
-    Categoria
+    Autor
   </h5>
   <button
     type="button"
@@ -14,22 +14,22 @@
 <div class="modal-body">
   <div class="row g-3">
     <div class="col-sm-12">
-      <label for="descricao" class="form-label">Descrição</label>
+      <label for="descricao" class="form-label">Nome</label>
       <input
         type="text"
         class="form-control"
         id="descricao"
-        [formControl]="descricaoControl"
+        [formControl]="nameControl"
         [ngClass]="{
           'is-invalid':
-            descricaoControl.invalid &&
-            descricaoControl.touched,
+            nameControl.invalid &&
+            nameControl.touched,
         }"
       />
       <div
         class="invalid-feedback"
-        *ngIf="descricaoControl.invalid &&
-        descricaoControl.touched && descricaoControl.errors?.['required']"
+        *ngIf="nameControl.invalid &&
+        nameControl.touched && nameControl.errors?.['required']"
       >
         Descrição é obrigatório.
       </div>

@@ -23,6 +23,16 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'author',
+        loadChildren: () =>
+          import('./pages/author/author.module').then((m) => m.AuthorModule),
+      },
+      {
+        path: 'book',
+        loadChildren: () =>
+          import('./pages/book/book.module').then((m) => m.BookModule),
+      },
+      {
         path: 'category',
         loadChildren: () =>
           import('./pages/category/category.module').then(

@@ -1,0 +1,105 @@
+<form [formGroup]="bookForm" (ngSubmit)="salvar()">
+  <div class="modal-header">
+    <h5 class="modal-title">
+      {{ action ? "Adicionar" : "Editar" }}
+      Livro
+    </h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      id="btnX"
+      (click)="fecharModal()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="row g-3">
+      <div class="col-sm-12">
+        <label for="title" class="form-label">Título</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          formControlName="title"
+          [ngClass]="{
+          'is-invalid':
+            bookForm.controls['title'].invalid &&
+            bookForm.controls['title'].touched,
+        }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="bookForm.controls['title'].invalid && bookForm.controls['title'].touched && bookForm.controls['title'].errors?.['required']"
+        >
+          Título é obrigatório.
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label for="price" class="form-label">Preço</label>
+        <input
+          type="text"
+          class="form-control"
+          id="price"
+          formControlName="price"
+          [ngClass]="{
+          'is-invalid':
+            bookForm.controls['price'].invalid &&
+            bookForm.controls['price'].touched,
+        }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="bookForm.controls['price'].invalid && bookForm.controls['price'].touched && bookForm.controls['price'].errors?.['required']"
+        >
+          Preço é obrigatório.
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label for="stock" class="form-label">Estoque</label>
+        <input
+          type="text"
+          class="form-control"
+          id="stock"
+          formControlName="stock"
+          [ngClass]="{
+          'is-invalid':
+            bookForm.controls['stock'].invalid &&
+            bookForm.controls['stock'].touched,
+        }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="bookForm.controls['stock'].invalid && bookForm.controls['stock'].touched && bookForm.controls['stock'].errors?.['required']"
+        >
+          Estoque é obrigatório.
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <label for="stock" class="form-label">Categorias</label>
+        <app-multi-select
+          [options]="categories"
+          [dropdownTitle]="'Selecione as categorias...'"
+          [searchPlaceholder]="'Procurar...'"
+          [pageSize]="10"
+          [totalPages]="totalPagesCategories"
+          [formControl]="bookForm.controls['categories']"
+          (selectionChange)="onSelectionChange($event)"
+          (loadMore)="onLoadMore($event)"
+        >
+        </app-multi-select>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      id="btnFechar"
+      class="btn btn-secondary"
+      (click)="fecharModal()"
+    >
+      Fechar
+    </button>
+    <button type="submit" id="btnSalvar" class="btn btn-success">Salvar</button>
+  </div>
+</form>

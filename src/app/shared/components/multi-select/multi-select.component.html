@@ -1,0 +1,81 @@
+<div class="dropdown multi-select-dropdown">
+  <!-- Select personalizado -->
+  <button
+    class="form-select text-start"
+    type="button"
+    id="dropdownMenuButton"
+    [ngClass]="{
+      'is-invalid': control.invalid && control.touched
+    }"
+    (click)="toggleDropdown()"
+  >
+    {{ getSelectedLabels() || dropdownTitle }}
+  </button>
+
+  <!-- Erro de Validação -->
+  <div
+    class="invalid-feedback"
+    *ngIf="control.invalid && control.touched && control.errors?.['required']"
+  >
+    É necessário selecionar pelo menos uma opção.
+  </div>
+
+  <!-- Conteúdo do Dropdown -->
+  <div
+    class="dropdown-menu w-100 p-3 shadow-sm"
+    aria-labelledby="dropdownMenuButton"
+    [class.show]="dropdownOpen"
+  >
+    <!-- Campo de Busca -->
+    <div class="mb-2">
+      <input
+        type="text"
+        class="form-control"
+        [placeholder]="searchPlaceholder"
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+      />
+    </div>
+
+    <!-- Lista de Opções -->
+    <div
+      class="infinite-scroll-container"
+      (scroll)="onScroll($event)"
+      [style.maxHeight]="'200px'"
+      [style.overflowY]="'auto'"
+    >
+      <div *ngFor="let option of filteredOptions">
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            [id]="'checkbox-' + option.id"
+            [checked]="isSelected(option)"
+            (change)="toggleSelection(option)"
+          />
+          <label class="form-check-label" [for]="'checkbox-' + option.id">
+            {{ option.label }}
+          </label>
+        </div>
+      </div>
+
+      <!-- Loader -->
+      <div *ngIf="loading" class="text-center mt-2">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão para Fechar Dropdown -->
+    <div class="mt-2">
+      <button
+        class="btn btn-secondary w-100"
+        type="button"
+        (click)="closeDropdown()"
+      >
+        Fechar
+      </button>
+    </div>
+  </div>
+</div>
