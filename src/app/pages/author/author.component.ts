@@ -69,7 +69,8 @@ export class AuthorComponent implements OnInit {
   }
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
-      this.loadAuthors(page);
+      const filter = this.searchControl.value ?? '';
+      this.loadAuthors(page, filter);
     }
   }
   private remove(author: Author) {

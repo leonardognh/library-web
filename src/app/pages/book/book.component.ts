@@ -69,7 +69,8 @@ export class BookComponent implements OnInit {
   }
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
-      this.loadBooks(page);
+      const filter = this.searchControl.value ?? '';
+      this.loadBooks(page, filter);
     }
   }
   private remove(book: Book) {

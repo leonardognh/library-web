@@ -69,7 +69,8 @@ export class CategoryComponent implements OnInit {
   }
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
-      this.loadCategories(page);
+      const filter = this.searchControl.value ?? '';
+      this.loadCategories(page, filter);
     }
   }
   private remove(category: Category) {
