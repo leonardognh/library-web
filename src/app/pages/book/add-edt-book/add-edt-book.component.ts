@@ -23,8 +23,8 @@ export class AddEdtBookComponent implements OnInit {
   action = 'Cadastrar';
   bookForm = new FormGroup({
     title: new FormControl('', Validators.required),
-    price: new FormControl(null, Validators.required),
-    stock: new FormControl(null, Validators.required),
+    price: new FormControl(0, Validators.required),
+    stock: new FormControl(0, Validators.required),
     categories: new FormControl(null, Validators.required),
     authors: new FormControl(null, Validators.required),
   });
@@ -133,6 +133,8 @@ export class AddEdtBookComponent implements OnInit {
     const [authors, categories] = this.getAuthorAndCategoryIds();
     book.authors = authors;
     book.categories = categories;
+    book.price = Number(book.price);
+    book.stock = Number(book.stock);
 
     this.bookService.add(book).subscribe({
       next: () => {
@@ -153,6 +155,8 @@ export class AddEdtBookComponent implements OnInit {
     const [authors, categories] = this.getAuthorAndCategoryIds();
     book.authors = authors;
     book.categories = categories;
+    book.price = Number(book.price);
+    book.stock = Number(book.stock);
 
     this.bookService.update(book).subscribe({
       next: () => {

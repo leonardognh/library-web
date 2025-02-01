@@ -30,15 +30,6 @@
   </div>
 
   <div class="col-md-9">
-    <div class="d-flex justify-content-center align-items-center mb-3">
-      <ngb-pagination
-        [(page)]="currentPage"
-        [pageSize]="pageSize"
-        [collectionSize]="totalItems"
-        (pageChange)="goToPage($event)"
-      />
-    </div>
-
     <div class="row">
       <div class="col-md-4 mb-4" *ngFor="let book of books">
         <div class="card">
@@ -59,6 +50,14 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <ngb-pagination
+        [(page)]="currentPage"
+        [pageSize]="pageSize"
+        [collectionSize]="totalItems"
+        (pageChange)="goToPage($event)"
+      />
     </div>
   </div>
 </div>
