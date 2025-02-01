@@ -88,6 +88,9 @@ export class ShopComponent implements OnInit, OnDestroy {
       this.loadBooks(this.searchControl.value || '');
     }
   }
+  getAuthors(book: Book) {
+    return book.author?.map((a) => a.name).join(', ');
+  }
 
   addToCart(book: Book): void {
     alert(`Adicionado ao carrinho: ${book.title}`);

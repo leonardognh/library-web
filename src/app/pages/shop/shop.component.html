@@ -45,13 +45,16 @@
           <div class="card-body">
             <h5 class="card-title">{{ book.title }}</h5>
             <p class="card-text">
-              <strong>Autor(es):</strong>
+              {{ getAuthors(book) }}
             </p>
             <p class="card-text">
-              <strong>Valor:</strong> R$ {{ book.price.toFixed(2) }}
+              <strong>R$</strong> {{ book.price.toFixed(2) }}
             </p>
-            <button class="btn btn-primary" (click)="addToCart(book)">
-              Adicionar ao Carrinho
+            <button
+              class="btn btn-outline-primary w-100"
+              (click)="addToCart(book)"
+            >
+              <i class="bi bi-cart-plus"></i>
             </button>
           </div>
         </div>
