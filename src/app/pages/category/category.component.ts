@@ -26,7 +26,7 @@ export class CategoryComponent implements OnInit {
   pages: number[] = [];
 
   ngOnInit(): void {
-    this.loadCategories(this.currentPage);
+    this.loadCategories();
     this.observerSeachChange();
   }
   loadCategories(page: number = 0, filter?: string): void {

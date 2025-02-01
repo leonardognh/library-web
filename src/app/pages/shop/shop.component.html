@@ -1,0 +1,61 @@
+<h3>Loja</h3>
+
+<div class="row mb-3">
+  <div class="input-group me-3">
+    <span class="input-group-text"><i class="bi bi-search"></i></span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Pesquisar..."
+      [formControl]="searchControl"
+    />
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">Categorias</div>
+      <div class="card-body overflow-auto" style="max-height: 300px">
+        <div *ngFor="let category of categories" class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [value]="category.id"
+            (change)="filterBooks(category, $event)"
+          />
+          <label class="form-check-label">{{ category.description }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <ngb-pagination
+        [(page)]="currentPage"
+        [pageSize]="pageSize"
+        [collectionSize]="totalItems"
+        (pageChange)="goToPage($event)"
+      />
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let book of books">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text">
+              <strong>Autor(es):</strong>
+            </p>
+            <p class="card-text">
+              <strong>Valor:</strong> R$ {{ book.price.toFixed(2) }}
+            </p>
+            <button class="btn btn-primary" (click)="addToCart(book)">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

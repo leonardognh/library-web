@@ -7,8 +7,14 @@ import { PaginatedResponse } from '../models/paginated-response.model';
 export abstract class GenericService<T extends Base> {
   protected httpClient = inject(HttpClient);
   protected apiUrl: string;
-  getAll(page: number = 0, filter?: string): Observable<PaginatedResponse<T>> {
-    let params = new HttpParams().set('page', page.toString());
+  getAll(
+    page: number = 0,
+    filter?: string,
+    limit: number = 10
+  ): Observable<PaginatedResponse<T>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
     if (filter) {
       params = params.set('filter', filter);
     }

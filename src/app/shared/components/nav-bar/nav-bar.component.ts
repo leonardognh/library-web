@@ -8,23 +8,23 @@ import { Component } from '@angular/core';
 export class NavBarComponent {
   menus = [
     {
-      label: 'Autores',
-      route: '/author',
-    },
-    {
-      label: 'Livros',
-      route: '/book',
+      label: 'Loja',
+      route: '/shop',
     },
     {
       label: 'Cadastros',
       children: [
         {
+          label: 'Autores',
+          route: '/author',
+        },
+        {
           label: 'Categoria',
           route: '/category',
         },
         {
-          label: 'Cliente',
-          route: '/customer',
+          label: 'Livros',
+          route: '/book',
         },
       ],
     },

@@ -7,7 +7,7 @@ import { authGuard } from './shared/guard/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'book',
+    redirectTo: 'shop',
     pathMatch: 'full',
   },
   {
@@ -15,6 +15,11 @@ const routes: Routes = [
     component: FullComponent,
     canActivate: [authGuard],
     children: [
+      {
+        path: 'shop',
+        loadChildren: () =>
+          import('./pages/shop/shop.module').then((m) => m.ShopModule),
+      },
       {
         path: 'author',
         loadChildren: () =>
