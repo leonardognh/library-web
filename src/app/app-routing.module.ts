@@ -31,6 +31,13 @@ const routes: Routes = [
           import('./pages/book/book.module').then((m) => m.BookModule),
       },
       {
+        path: 'checkout',
+        loadChildren: () =>
+          import('./pages/checkout/checkout.module').then(
+            (m) => m.CheckoutModule
+          ),
+      },
+      {
         path: 'category',
         loadChildren: () =>
           import('./pages/category/category.module').then(

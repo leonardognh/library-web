@@ -3,8 +3,10 @@ import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 import { Book } from 'src/app/shared/models/book.model';
 import { Category } from 'src/app/shared/models/category.model';
+import { ItemSale } from 'src/app/shared/models/item-sale.model';
 import { PaginatedResponse } from 'src/app/shared/models/paginated-response.model';
 import { BookService } from 'src/app/shared/services/book.service';
+import { CartService } from 'src/app/shared/services/cart.service';
 import { CategoryService } from 'src/app/shared/services/category.service';
 
 @Component({
@@ -13,6 +15,7 @@ import { CategoryService } from 'src/app/shared/services/category.service';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit, OnDestroy {
+  private cartService = inject(CartService);
   private categoryService = inject(CategoryService);
   private bookService = inject(BookService);
   private destroy$ = new Subject<void>();
@@ -93,7 +96,16 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   addToCart(book: Book): void {
-    alert(`Adicionado ao carrinho: ${book.title}`);
+    const product: ItemSale = {
+      id: 1,
+      saleId: 1,
+      bookId: book.id,
+      quantity: 1,
+      price: book.price,
+      book,
+    };
+
+    this.cartService.add(product);
   }
 
   ngOnDestroy(): void {

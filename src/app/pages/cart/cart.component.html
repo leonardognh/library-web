@@ -1,0 +1,62 @@
+<div class="position-relative">
+  <button class="btn btn-outline-primary" (click)="toggleDropdown()">
+    <i class="bi bi-cart"></i> ({{ products.length }})
+  </button>
+
+  <div
+    class="dropdown-menu show"
+    *ngIf="dropdownAberto"
+    style="width: 300px; right: 0; position: absolute"
+  >
+    <div class="p-3">
+      <h5>Carrinho de Compras</h5>
+      <hr />
+      <div *ngIf="products.length === 0">Seu carrinho está vazio.</div>
+
+      <div
+        *ngFor="let product of products"
+        class="d-flex justify-content-between align-items-center mb-2"
+      >
+        <div>
+          <strong>{{ product.book?.title }}</strong>
+          <br />
+          <span>R$ {{ product.price | number : "1.2-2" }}</span>
+        </div>
+
+        <div class="d-flex align-items-center">
+          <i
+            class="bi bi-dash-circle"
+            (click)="updateQuantity(product.id, product.quantity - 1)"
+          ></i>
+          <input
+            type="number"
+            [(ngModel)]="product.quantity"
+            (change)="updateQuantity(product.id, product.quantity)"
+            class="form-control form-control-sm mx-1 ms-2"
+            style="width: 50px"
+          />
+          <i
+            class="bi bi-plus-circle"
+            (click)="updateQuantity(product.id, product.quantity + 1)"
+          ></i>
+
+          <i
+            class="bi bi-trash text-danger ms-2"
+            (click)="remove(product.id)"
+          ></i>
+        </div>
+      </div>
+
+      <hr />
+      <strong>Total: R$ {{ total | number : "1.2-2" }}</strong>
+      <hr *ngIf="products.length > 0" />
+      <a
+        class="btn btn-success w-100 mt-2"
+        [routerLink]="['/checkout']"
+        *ngIf="products.length > 0"
+      >
+        Finalizar Compra
+      </a>
+    </div>
+  </div>
+</div>
