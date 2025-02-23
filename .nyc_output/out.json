@@ -1,0 +1,335 @@
+{
+  "D:/Programação/Projetos/Estudar/library-web/src/app/app.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/app.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/environments/environment.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/environments/environment.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/layout/blank/blank.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/layout/blank/blank.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/layout/full/full.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/layout/full/full.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/author/author.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/author/author.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/book/book.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/book/book.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/cart/cart.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/cart/cart.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/category/category.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/category/category.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/checkout/checkout.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/checkout/checkout.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/shop/shop.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/shop/shop.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/guard/auth.guard.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/guard/auth.guard.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/author.model.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/author.model.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/base.model.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/base.model.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/book.model.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/book.model.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/category.model.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/category.model.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/customer.model.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/customer.model.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/item-sale.model.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/item-sale.model.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/options.models.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/options.models.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/paginated-response.model.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/paginated-response.model.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/sale.model.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/models/sale.model.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/auth.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/auth.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/author.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/author.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/book.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/book.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/cart.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/cart.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/category.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/category.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/customer.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/customer.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/generic.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/generic.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/item-sale.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/item-sale.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/sale.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/services/sale.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/auth/login/login.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/auth/login/login.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/author/add-edt-author/add-edt-author.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/author/add-edt-author/add-edt-author.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/book/add-edt-book/add-edt-book.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/book/add-edt-book/add-edt-book.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/pages/category/add-edt-category/add-edt-category.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/pages/category/add-edt-category/add-edt-category.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/components/modal-confirmation/modal-confirmation.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/components/modal-confirmation/modal-confirmation.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/components/multi-select/multi-select.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/components/multi-select/multi-select.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/components/nav-bar/nav-bar.component.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/components/nav-bar/nav-bar.component.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/Programação/Projetos/Estudar/library-web/src/app/shared/components/multi-select/services/dropdown.service.ts": {
+    "path": "D:/Programação/Projetos/Estudar/library-web/src/app/shared/components/multi-select/services/dropdown.service.ts",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  }
+}
