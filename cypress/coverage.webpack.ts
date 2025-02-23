@@ -1,35 +1,20 @@
-const path = require('path');
-const webpack = require('webpack');
+import * as path from 'path';
 
-module.exports = {
-  mode: 'development',
-  resolve: {
-    extensions: ['.js', '.ts'],
-  },
+export default {
   module: {
     rules: [
       {
         test: /\.(js|ts)$/,
-        include: path.resolve(__dirname, '../src'),
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-typescript'],
-            plugins: [
-              [
-                '@babel/plugin-proposal-decorators',
-                { version: '2023-05', decoratorsBeforeExport: true },
-              ],
-              'istanbul',
-            ], // Instrumentação do código com Istanbul
-          },
-        },
+        loader: '@jsdevtools/coverage-istanbul-loader',
+        options: { esModules: true },
+        enforce: 'post',
+        include: path.join(__dirname, '..', 'src'),
+        exclude: [
+          /\.(e2e|spec)\.ts$/,
+          /node_modules/,
+          /(ngfactory|ngstyle)\.js/,
+        ],
       },
     ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('test'),
-    }),
-  ],
 };
