@@ -11,6 +11,7 @@
     "**/*.spec.ts",
     "./src/main.ts",
     "./src/test.ts",
-    "**/*.conf.js"
+    "**/*.conf.js",
+    "src/**/*.module.ts"
   ]
 }
