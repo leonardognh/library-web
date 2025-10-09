@@ -68,9 +68,9 @@ export type BookDialogData = {
           <mat-form-field appearance="outline" class="w-100">
             <mat-label>Autores</mat-label>
             <mat-select formControlName="authorIds" multiple>
-              <mat-option *ngFor="let a of authors()" [value]="a.id">{{
-                a.name
-              }}</mat-option>
+              @for(a of authors();track a.id){
+              <mat-option [value]="a.id">{{ a.name }}</mat-option>
+              }
             </mat-select>
           </mat-form-field>
         </div>

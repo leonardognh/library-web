@@ -1,11 +1,55 @@
 import { Routes } from '@angular/router';
-import { CategoryListComponent } from './features/categories/category-list/category-list';
-import { AuthorListComponent } from './features/authors/author-list/author-list';
-import { BookListComponent } from './features/books/book-list/book-list';
+import { FullComponent } from './core/layouts/full/full';
+import { BlankComponent } from './core/layouts/blank/blank';
+import { authGuard } from './core/guard/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },
-  { path: 'books', component: BookListComponent },
-  { path: 'categories', component: CategoryListComponent },
-  { path: 'authors', component: AuthorListComponent },
+  {
+    path: '',
+    component: FullComponent,
+    canActivate: [authGuard],
+    children: [
+      {
+        path: 'authors',
+        loadComponent: () =>
+          import('./features/authors/author-list/author-list').then(
+            (m) => m.AuthorListComponent
+          ),
+      },
+      {
+        path: 'books',
+        loadComponent: () =>
+          import('./features/books/book-list/book-list').then(
+            (m) => m.BookListComponent
+          ),
+      },
+      {
+        path: 'categories',
+        loadComponent: () =>
+          import('./features/categories/category-list/category-list').then(
+            (m) => m.CategoryListComponent
+          ),
+      },
+    ],
+  },
+  {
+    path: '',
+    component: BlankComponent,
+    children: [
+      {
+        path: 'login',
+        loadComponent: () =>
+          import('./features/auth/login/login').then((m) => m.LoginComponent),
+      },
+      {
+        path: 'register',
+        loadComponent: () =>
+          import('./features/auth/register/register').then(
+            (m) => m.RegisterComponent
+          ),
+      },
+    ],
+  },
+  { path: '**', redirectTo: '' },
 ];
