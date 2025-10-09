@@ -159,6 +159,8 @@ Backend roda em **http://localhost:3000**.
   "/search/books/:q": "/books?q=:q",
   "/search/authors/:q": "/authors?q=:q",
   "/search/categories/:q": "/categories?q=:q"
+
+  "/users/by-email/:email": "/users?email=:email"
 }
 ```
 
