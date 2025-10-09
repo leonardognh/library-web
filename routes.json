@@ -1,0 +1,12 @@
+{
+  "/books/:id/authors": "/book_authors?bookId=:id&_expand=author",
+  "/books/:id/categories": "/book_categories?bookId=:id&_expand=category",
+  "/books/:id/publication": "/book_publications?bookId=:id",
+
+  "/authors/:id/books": "/book_authors?authorId=:id&_expand=book",
+  "/categories/:id/books": "/book_categories?categoryId=:id&_expand=book",
+
+  "/search/books/:q": "/books?q=:q",
+  "/search/authors/:q": "/authors?q=:q",
+  "/search/categories/:q": "/categories?q=:q"
+}

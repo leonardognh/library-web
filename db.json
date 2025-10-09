@@ -1,0 +1,130 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Clean Code",
+      "publicationYear": 2008
+    },
+    {
+      "id": 2,
+      "title": "Domain-Driven Design",
+      "publicationYear": 2003
+    },
+    {
+      "title": "Teste",
+      "publicationYear": 2025,
+      "id": 3
+    },
+    {
+      "title": "teste2",
+      "publicationYear": 2025,
+      "id": 4
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Robert C. Martin",
+      "birthYear": 1952,
+      "nationality": "USA"
+    },
+    {
+      "id": 2,
+      "name": "Eric Evans",
+      "birthYear": 1965,
+      "nationality": "USA"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Software",
+      "description": "Engenharia de Software"
+    },
+    {
+      "id": 2,
+      "name": "Arquitetura",
+      "description": "Modelagem e arquitetura"
+    }
+  ],
+  "book_authors": [
+    {
+      "id": 1,
+      "bookId": 1,
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "bookId": 2,
+      "authorId": 2
+    },
+    {
+      "bookId": 3,
+      "authorId": 1,
+      "id": 3
+    },
+    {
+      "bookId": 3,
+      "authorId": 2,
+      "id": 4
+    },
+    {
+      "bookId": 4,
+      "authorId": 1,
+      "id": 5
+    }
+  ],
+  "book_categories": [
+    {
+      "id": 1,
+      "bookId": 1,
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "bookId": 2,
+      "categoryId": 2
+    },
+    {
+      "bookId": 3,
+      "categoryId": 2,
+      "id": 3
+    },
+    {
+      "bookId": 3,
+      "categoryId": 1,
+      "id": 4
+    },
+    {
+      "bookId": 4,
+      "categoryId": 1,
+      "id": 5
+    }
+  ],
+  "book_publications": [
+    {
+      "id": 1,
+      "bookId": 1,
+      "publisherName": "Prentice Hall",
+      "city": "Upper Saddle River",
+      "edition": "1st",
+      "pages": 464
+    },
+    {
+      "publisherName": "teste",
+      "city": "teste",
+      "edition": "teste",
+      "pages": 123,
+      "bookId": 3,
+      "id": 2
+    },
+    {
+      "publisherName": "tes",
+      "city": "tes",
+      "edition": "tes",
+      "bookId": 4,
+      "id": 3,
+      "pages": 123
+    }
+  ]
+}
